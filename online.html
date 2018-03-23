@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background: linear-gradient(to left, #02aab0, #00cdac);
+            color: #fff;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 100;
+        }
+
+        p {
+            margin: .1em;
+        }
+
+        .wrapper {
+            height: 95vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-flow: column;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <p>Web</p>
+        <p>Animation</p>
+        <p>is</p>
+        <p>better</p>
+        <p>with</p>
+        <p>the</p>
+        <p>GreenSock</p>
+        <p>Animation</p>
+        <p>Platform</p>
+    </div>
+
+
+    <script>
+// Learn the syntax: TweenMax.staggerFrom(target, duration, {vars}, staggerAmount); 
+// The staggerAmount is like putting that delay on all your selected DOM elements
+
+// Make all the words fade in; Try adding a 1 second staggerAmount
+
+// Try scaling it too.  Reflect: in 1 line of code it does all that!!
+
+// Try a shorter stagger amount than duration (.3)
+
+// Try a longer stagger amount than duration (2)
+
+// Try adding a y with a negative amount (-80), then a positive amount (80)
+
+// Try adding a x with a positive amount (80), then negative amount (-80)
+
+// Uncomment line below.  Notice easing, then try making stagger amount even shorter (.05)
+// TweenMax.staggerFrom('p', .3, {opacity: 0, scale: .5, x:-80, ease:Back.easeOut.config(3)}, .1)
+    </script>
+</body>
+
+</html>

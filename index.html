@@ -406,7 +406,7 @@ tl.to("#green", 1, { x: 600 });
               <h3>
                 repeatDelay:
               </h3>
-              <p class="text-intro">Gets or sets the amount of time in seconds (or frames for frames-based tweens) between repeats.</a>
+              <p class="text-intro">Gets or sets the amount of time in seconds (or frames for frames-based tweens) between repeats.
               </p>
               <pre><code><h4>
 const tl = new TimelineMax(
@@ -422,6 +422,135 @@ tl.to("#green", 1, { x: 600 });
         </div>
         <!-- .end .wrap -->
       </section>
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap">
+          <div class="grid vertical-align">
+
+            <div class="column">
+              <div style="background: #333; padding: 33px">
+                <div id="green7" style="height: 100px; width: 100px; background: green; margin: 10px;"></div>
+              </div>
+              <button id="go7">Play</button>
+              <button id="go7b">Pause</button>
+              <script>
+                $(document).ready(function () {
+                  const tl7 = new TimelineMax({ yoyo: true, repeat: -1, paused: true });
+                  tl7.to("#green7", 1, { x: 600 });
+                  $('#go7').click(function () {
+                    tl7.play();
+                  });
+                  $('#go7b').click(function () {
+                    tl7.pause();
+                  });
+                });
+              </script>
+            </div>
+            <!-- .end .column -->
+            <div class="column">
+              <h3>
+                .play() | .pause()
+              </h3>
+              <pre><code><h4>
+const tl = new TimelineMax({ yoyo: true, repeat: -1, paused: true });
+tl.to("#green", 1, { x: 600 });
+
+$('#playButton').click(function () {
+  tl.play();
+});
+
+$('#pauseButton').click(function () {
+  tl.pause();
+});
+          </h4></code></pre>
+
+            </div>
+            <!-- .end .column -->
+          </div>
+          <!-- .end .grid -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap">
+          <div class="grid vertical-align">
+
+            <div class="column">
+              <div style="background: #333; padding: 33px">
+                <div id="green8" style="height: 100px; width: 100px; background: green; margin: 10px; color: #fff">autoAlpha</div>
+                <div id="green8b" style="height: 100px; width: 100px; background: green; margin: 10px; color: #fff">opacity</div>
+              </div>
+              <button id="go8">Run</button>
+              <script>
+                $(document).ready(function () {
+                  $('#go8').click(function () {
+                    const tl8 = new TimelineMax();
+                    tl8.to("#green8", 1, { autoAlpha: 0 }).to("#green8b", 1, { opacity: 0 });
+                  });
+                  $('#green8').click(function () {
+                    alert('clicked autoalpha');
+                  });
+                  $('#green8b').click(function () {
+                    alert('clicked opacity');
+                  });
+                });
+              </script>
+            </div>
+            <!-- .end .column -->
+            <div class="column">
+              <h3>
+                autoAlpha
+              </h3>
+              <p class="text-intro">Identical to opacity except that when the value hits 0 the visibility property will be set to "hidden" in order
+                to improve browser rendering performance and prevent clicks/interactivity on the target. When the value is
+                anything other than 0, visibility will be set to "inherit". It is not set to "visible" in order to honor
+                inheritance
+              </p>
+              <pre><code><h4>
+tl
+  .to("#green", 1, { autoAlpha: 0 })
+  .to("#green2", 1, { opacity: 0 });
+          </h4></code></pre>
+
+            </div>
+            <!-- .end .column -->
+          </div>
+          <!-- .end .grid -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap">
+          <div class="grid vertical-align">
+
+            <div class="column">
+              <p data-height="500" data-theme-id="0" data-slug-hash="BrREoB" data-default-tab="result" data-user="avcoder" data-embed-version="2"
+                data-pen-title="SVG Wars: May the morph be with you." data-preview="true" class="codepen">See the Pen
+                <a href="https://codepen.io/avcoder/pen/BrREoB/">SVG Wars: May the morph be with you.</a> by A.V. (
+                <a href="https://codepen.io/avcoder">@avcoder</a>) on
+                <a href="https://codepen.io">CodePen</a>.</p>
+              <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+            </div>
+            <!-- .end .column -->
+            <div class="column">
+              <h3>
+                .add()
+              </h3>
+              <p>Also notice how code is structured via functions which are then added to the master timeline</p>
+
+            </div>
+            <!-- .end .column -->
+          </div>
+          <!-- .end .grid -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
 
       <section>
         <!--.wrap = container (width: 90%) -->
@@ -492,7 +621,32 @@ tl
         <!-- .end .wrap -->
       </section>
 
+      <section class="bg-secondary">
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap size-50 frame">
+          <h2 class="text-serif aligncenter">
+            Submit Online Exercise + Break
+            <br /> (5 mins) + (15mins)
+          </h2>
+          <p class="aligncenter">
+            <a href="http://avillaruz.computerstudi.es/comp2105/index.html">Start timer</a>
+          </p>
+          <p class="text-symbols">* * *</p>
+          <h4>More Stuff</h4>
 
+          <ul>
+            <li>
+              <a href="https://twitter.com/Junaidanwar3/status/976463201364783104">Chrome DevTools tip</a>
+            </li>
+            <li>
+              <a href="https://icons8.com/lunacy">Lunacy - Sketch for Windows</a>
+            </li>
+            <li>
+              <a href="https://css-tricks.com/animate-a-container-on-mouse-over-using-perspective-and-transform/">https://css-tricks.com/animate-a-container-on-mouse-over-using-perspective-and-transform/</a>
+            </li>
+          </ul>
+        </div>
+      </section>
 
 
 
@@ -512,7 +666,8 @@ tl
           <pre><code><h3 class="aligncenter">TweenMax.to("#pathFrom", 1, {morphSVG:"#pathTo"});
           </h3></code></pre>
           <p class="text-intro">To morph an SVG path to another, all you need to do is point from one ID to another --
-            <i>it's that simple</i>
+            <br>
+            <i>(fyi: morphSVG can only work &lt;path&gt; not &lt;circle&gt; or other shapes)</i>
         </div>
         <!-- .end .wrap -->
       </section>
