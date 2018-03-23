@@ -165,25 +165,339 @@
           <div class="bg-white shadow">
             <ul class="flexblock reasons">
               <li>
-                <h2>MorphSVG, DrawSVG</h2>
-                <p></p>
+                <h2>
+                  .fromTo(), .staggerTo(), .timeline() etc.
+                </h2>
+                <p>Learn several more useful methods and properties of Greensock</p>
               </li>
               <li>
                 <h2>SVG anatomy</h2>
-                <p></p>
+                <p>A deeper glance into SVG</p>
               </li>
               <li>
-                <h2>
-                  GSAP's .fromTo(), .staggerTo() etc.
-                </h2>
-                <p></p>
+                <h2>MorphSVG</h2>
+                <p>Learn one of the most popular plugins of GSAP</p>
               </li>
+
+
             </ul>
           </div>
           <!-- .end .bg-white shadow -->
         </div>
         <!-- .end .wrap -->
       </section>
+
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap">
+          <div class="grid vertical-align">
+
+            <div class="column">
+              <div style="background: #333; padding: 33px">
+                <div id="green1" style="height: 100px; width: 100px; background: green; margin: 10px;"></div>
+              </div>
+              <button id="go1">Run</button>
+              <script>
+                $(document).ready(function () {
+                  $('#go1').click(function () {
+                    const tl1 = new TimelineMax();
+                    tl1.fromTo("#green1", 1, { x: 500 }, { x: 200 });
+                  });
+                });
+              </script>
+            </div>
+            <!-- .end .column -->
+            <div class="column">
+              <h3>
+                .fromTo()
+              </h3>
+              <pre><code><h4>
+  const tl1 = new TimelineMax();
+  
+  tl1.fromTo("#green", 1, 
+    {x: 500}, {x: 200});
+  </h4></code></pre>
+
+            </div>
+            <!-- .end .column -->
+          </div>
+          <!-- .end .grid -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap">
+          <div class="grid vertical-align">
+
+            <div class="column">
+              <div style="background: #333; padding: 33px">
+                <div id="green2" style="height: 100px; width: 100px; background: green; margin: 10px;"></div>
+                <div id="blue2" style="height: 100px; width: 100px; background: lightblue;  margin: 10px;"></div>
+                <div id="orange2" style="height: 100px; width: 100px; background: orange;  margin: 10px;"></div>
+              </div>
+              <button id="go2">Run Normal</button>
+              <button id="go2b">Run 2x speed</button>
+              <script>
+                $(document).ready(function () {
+                  $('#go2').click(function () {
+                    const tl2 = new TimelineMax();
+                    tl2.to("#green2", 1, { x: 600 }).to("#blue2", 1, { x: 600 }).to("#orange2", 1, { x: 600 });
+                  });
+
+                  $('#go2b').click(function () {
+                    const tl2b = new TimelineMax();
+                    tl2b.to("#green2", 1, { x: 600 }).to("#blue2", 1, { x: 600 }).to("#orange2", 1, { x: 600 })
+                    tl2b.timeScale(2);
+                  });
+                });
+
+
+              </script>
+            </div>
+            <!-- .end .column -->
+            <div class="column">
+              <h3>
+                .timeScale()
+              </h3>
+              <p class="text-intro">Factor that's used to scale time in the animation where 1 = normal speed (the default), 0.5 = half speed, 2
+                = double speed, etc</p>
+              <pre><code><h4>
+tl
+.to("#green", 1, { x: 600 })
+.to("#blue", 1, { x: 600 })
+.to("#orange", 1, { x: 600 })
+
+tl.timeScale(2);
+    </h4></code></pre>
+
+            </div>
+            <!-- .end .column -->
+          </div>
+          <!-- .end .grid -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap">
+          <div class="grid vertical-align">
+
+            <div class="column">
+              <div style="background: #333; padding: 33px">
+                <div id="green3" style="height: 100px; width: 100px; background: green; margin: 10px;"></div>
+              </div>
+              <button id="go3">Repeat 0</button>
+              <button id="go3b">Repeat 1</button>
+              <button id="go3c">Repeat 2</button>
+              <button id="go3d">Repeat -1</button>
+              <script>
+                $(document).ready(function () {
+                  $('#go3').click(function () {
+                    const tl3 = new TimelineMax();
+                    tl3.to("#green3", 1, { x: 600, yoyo: true, repeat: 0 });
+                  });
+                  $('#go3b').click(function () {
+                    const tl3 = new TimelineMax();
+                    tl3.to("#green3", 1, { x: 600, yoyo: true, repeat: 1 });
+                  });
+                  $('#go3c').click(function () {
+                    const tl3 = new TimelineMax();
+                    tl3.to("#green3", 1, { x: 600, yoyo: true, repeat: 2 });
+                  });
+                  $('#go3d').click(function () {
+                    const tl3 = new TimelineMax();
+                    tl3.to("#green3", 1, { x: 600, yoyo: true, repeat: -1 });
+                  });
+                });
+              </script>
+            </div>
+            <!-- .end .column -->
+            <div class="column">
+              <h3>
+                yoyo | repeat
+              </h3>
+              <p class="text-intro">yoyo is a boolean value, where true causes the tween to go back and forth, alternating backward and forward
+                on each repeat. yoyo works in conjunction with repeat, where repeat controls how many times the tween repeats,
+                and yoyo controls whether or not each repeat alternates direction</p>
+              <pre><code><h4>
+tl.to("#green", 1, { x:600, 
+  yoyo: true, repeat: 2 });
+    </h4></code></pre>
+
+            </div>
+            <!-- .end .column -->
+          </div>
+          <!-- .end .grid -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap">
+          <div class="grid vertical-align">
+
+            <div class="column">
+              <div style="background: #333; padding: 33px">
+                <div id="green4" style="height: 100px; width: 100px; background: green; margin: 10px;"></div>
+              </div>
+              <button id="go4">Run</button>
+              <script>
+                $(document).ready(function () {
+                  $('#go4').click(function () {
+                    const tl4 = new TimelineMax({ yoyo: true, repeat: -1 });
+                    tl4.to("#green4", 1, { x: 600 });
+                  });
+                });
+              </script>
+            </div>
+            <!-- .end .column -->
+            <div class="column">
+              <h3>
+                Passing options when constructing
+                <br> new TimelineMax({vars})
+              </h3>
+              <p class="text-intro">The vars parameter allows you to configure a TimelineMax with a
+                <a href="https://greensock.com/docs/TimelineMax/TimelineMax()">variety of options</a>
+              </p>
+              <pre><code><h4>
+const tl = new TimelineMax(
+  { yoyo: true, repeat: -1 });
+
+tl.to("#green", 1, { x: 600 });
+      </h4></code></pre>
+
+            </div>
+            <!-- .end .column -->
+          </div>
+          <!-- .end .grid -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap">
+          <div class="grid vertical-align">
+
+            <div class="column">
+              <div style="background: #333; padding: 33px">
+                <div id="green5" style="height: 100px; width: 100px; background: green; margin: 10px;"></div>
+              </div>
+              <button id="go5">Run</button>
+              <script>
+                $(document).ready(function () {
+                  $('#go5').click(function () {
+                    const tl5 = new TimelineMax({ yoyo: true, repeat: -1, repeatDelay: 1 });
+                    tl5.to("#green5", 1, { x: 600 });
+                  });
+                });
+              </script>
+            </div>
+            <!-- .end .column -->
+            <div class="column">
+              <h3>
+                repeatDelay:
+              </h3>
+              <p class="text-intro">Gets or sets the amount of time in seconds (or frames for frames-based tweens) between repeats.</a>
+              </p>
+              <pre><code><h4>
+const tl = new TimelineMax(
+  { yoyo: true, repeat: -1, repeatDelay: 1 });
+
+tl.to("#green", 1, { x: 600 });
+        </h4></code></pre>
+
+            </div>
+            <!-- .end .column -->
+          </div>
+          <!-- .end .grid -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap">
+          <div class="grid vertical-align">
+
+            <div class="column">
+              <div style="background: #333; padding: 33px">
+                <div class="boxes" style="height: 100px; width: 100px; background: green; margin: 10px;"></div>
+                <div class="boxes" style="height: 100px; width: 100px; background: lightblue;  margin: 10px;"></div>
+                <div class="boxes" style="height: 100px; width: 100px; background: orange;  margin: 10px;"></div>
+              </div>
+              <button id="go6">Run</button>
+              <script>
+                $(document).ready(function () {
+                  $('#go6').click(function () {
+                    const tl6 = new TimelineMax();
+                    tl6.staggerFrom(".boxes", 1, { x: 600 }, 2);
+                  });
+                });
+              </script>
+            </div>
+            <!-- .end .column -->
+            <div class="column">
+              <h4>
+                .staggerFrom(target, duration, {vars}, staggerAmount);
+              </h4>
+              <p class="text-intro">Tweens an array of targets, but staggers their start times by a specified amount of time, creating an evenly-spaced
+                sequence with a surprisingly small amount of code.</p>
+              <pre><code><h4>
+tl
+ .staggerFrom(".boxes", 1, { x: 600 }, 2);
+      </h4></code></pre>
+
+            </div>
+            <!-- .end .column -->
+          </div>
+          <!-- .end .grid -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section class="bg-apple">
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap">
+          <div class="grid vertical-align">
+
+            <div class="column">
+              <p data-height="500" data-theme-id="0" data-slug-hash="KozWop" data-default-tab="result" data-user="avcoder" data-embed-version="2"
+                data-pen-title="staggerfrom()" class="codepen">See the Pen
+                <a href="https://codepen.io/avcoder/pen/KozWop/">staggerfrom()</a> by A.V. (
+                <a href="https://codepen.io/avcoder">@avcoder</a>) on
+                <a href="https://codepen.io">CodePen</a>.</p>
+              <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+            </div>
+            <!-- .end .column -->
+            <div class="column">
+              <h3>
+                Experiment with .staggerFrom()
+              </h3>
+
+
+            </div>
+            <!-- .end .column -->
+          </div>
+          <!-- .end .grid -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+
+
+
+
+
+
 
 
       <section>
@@ -346,6 +660,26 @@
         </div>
         <!-- .end .wrap -->
       </section>
+
+      <section class="bg-blue">
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap size-70 aligncenter">
+
+          <div class="column">
+
+            <h2>
+              Use
+              <strong>inline</strong> SVG to support animation and interaction</h2>
+            <pre><code><h4>
+&lt;polygon fill="white" stroke="black" points="279,5 294,35 328,40 303,62 309,94 279,79 248,94 254,62 230,39 263,35 " /&gt;
+              </h4></code></pre>
+            <h4>CSS was not made for drawing like SVG is.</h4>
+          </div>
+          <!-- .end .bg-white shadow -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
 
       <section class="bg-blue">
         <!--.wrap = container (width: 90%) -->
