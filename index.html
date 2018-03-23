@@ -529,6 +529,49 @@ tl
           <div class="grid vertical-align">
 
             <div class="column">
+              <div style="background: #333; padding: 33px">
+                <svg x="0px" y="0px" width="150px" height="150px" viewBox="0 0 150 150">
+                  <rect id="green9" x="0" y="0" fill="green" stroke="black" width="150" height="150" />
+                </svg>
+
+              </div>
+              <button id="go9">Run</button>
+              <script>
+                $(document).ready(function () {
+                  $('#go9').click(function () {
+                    TweenMax.to("#green9", 1, { attr: { x: 100, y: 50, width: 80, height: 50 }, ease: Linear.easeNone });
+                  });
+                });
+              </script>
+            </div>
+            <!-- .end .column -->
+            <div class="column">
+              <h3>
+                attr: {}
+              </h3>
+              <p class="text-intro">Tweens any numeric attribute of a DOM element. For example, let's say your DOM element looks like this:
+              </p>
+              <pre><code><h5>
+&lt;rect id="green" x="0" y="0" fill="green" stroke="black" width="150" height="150" /&gt;
+
+TweenMax.to("#green", 1, { attr: { x: 100, y: 50, width: 80, height: 50 }, ease: Linear.easeNone });
+            </h5></code></pre>
+
+            </div>
+            <!-- .end .column -->
+          </div>
+          <!-- .end .grid -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap">
+          <div class="grid vertical-align">
+
+            <div class="column">
               <p data-height="500" data-theme-id="0" data-slug-hash="BrREoB" data-default-tab="result" data-user="avcoder" data-embed-version="2"
                 data-pen-title="SVG Wars: May the morph be with you." data-preview="true" class="codepen">See the Pen
                 <a href="https://codepen.io/avcoder/pen/BrREoB/">SVG Wars: May the morph be with you.</a> by A.V. (
@@ -1040,7 +1083,9 @@ tl
           <div class="grid vertical-align">
 
             <div class="column">
-              <img src="./static/images/download.gif" alt="download button" style="width: 400px">
+              <a href="https://blueprintinteractive.com/blog/creating-svg-download-button-gsap%E2%80%99s-morphsvgplugin">
+                <img src="./static/images/download.gif" alt="download button" style="width: 400px">
+              </a>
             </div>
             <!-- .end .column -->
             <div class="column">
@@ -1050,6 +1095,7 @@ tl
               <p class="text-intro">
                 <a href="https://codepen.io/avcoder/pen/dmRqPe">https://codepen.io/avcoder/pen/dmRqPe</a>
               </p>
+
             </div>
             <!-- .end .column -->
           </div>
